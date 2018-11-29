@@ -1,1 +1,42 @@
-<html><head><meta name="viewport" content="width=device-width; height=device-height;"><title></title><link rel="stylesheet" href="resource://content-accessible/TopLevelVideoDocument.css"><link rel="stylesheet" href="chrome://global/skin/media/TopLevelVideoDocument.css"><script type="text/javascript" src="chrome://global/content/TopLevelVideoDocument.js"></script></head><body><video autoplay="" controls="" style="height: 40px; width: 66%;"></video></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>audio test</title>
+</head>
+<body>
+<!--   <audio controls="controls" autoplay>
+  Your browser does not support the <code>audio</code> element.
+  <source src="smb_gameover.wav" type="audio/wav">
+</audio>
+ -->
+
+<button class="playWAV">Play WAV</button>
+<button class="playMP3">Play MP3</button>
+
+<script>
+/**********************
+******** AUDIO ********
+**********************/
+
+// load and play a sound.
+function playSound(path) {
+  // audio supported?
+  if (typeof window.Audio === 'function') {
+    var audioElem = new Audio();
+    audioElem.src = path;
+    audioElem.play();
+  }
+}
+
+// event listeners
+document.querySelector('.playWAV').addEventListener('click', function(){
+  playSound('smb_gameover.wav');
+});
+document.querySelector('.playMP3').addEventListener('click', function(){
+  playSound('music.mp3');
+});
+</script>
+
+ </body>
+</html>
